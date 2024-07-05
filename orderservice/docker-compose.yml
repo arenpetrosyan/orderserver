@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+    container_name: orderserver
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/aren
+      - SPRING_DATASOURCE_USERNAME:posrgres
+      - SPRING_DATASOURCE_PASSWORD:posrgres
+    ports:
+      - '8080:8080'
+
+  db:
+    image: postgres:16-alpine
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=aren

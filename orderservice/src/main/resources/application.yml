@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: orderserver
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/aren
+    username: postgres
+    password: postgres
+
+  sql:
+    init:
+      mode: always
+      continue-on-error: false
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+#      username: redis
+#      password: redis
+
+  cache:
+    type: redis
+    cache-names: redis-cache
+
+
+security:
+  jwt:
+    secret: c3NqcmJnbmxzZGpicjtham5yO2FuO25CSEhWS0dWS1ZLVVlWR1ZMSkI
+    access: 36000000
+    refresh: 2592000000
