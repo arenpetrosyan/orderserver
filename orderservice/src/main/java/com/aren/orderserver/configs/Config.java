@@ -30,7 +30,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class Config {
 
     private final JwtTokenProvider jwtTokenProvider;
-    private final ApplicationContext applicationContext;
 
     /**
      * Configures and provides a PasswordEncoder bean using BCryptPasswordEncoder for password hashing.

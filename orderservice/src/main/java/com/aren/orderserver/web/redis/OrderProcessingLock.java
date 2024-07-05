@@ -16,11 +16,10 @@ public class OrderProcessingLock {
      * Acquires a lock for the specified order ID.
      *
      * @param orderId the ID of the order to acquire lock for
-     * @return true if the lock was successfully acquired, false otherwise
      */
-    public boolean acquireLock(Integer orderId) {
+    public void acquireLock(Integer orderId) {
         RLock lock = redissonClient.getLock("orderLock:" + orderId);
-        return lock.tryLock();
+        lock.tryLock();
     }
 
     /**

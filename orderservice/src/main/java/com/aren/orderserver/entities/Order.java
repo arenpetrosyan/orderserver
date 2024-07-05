@@ -1,6 +1,5 @@
 package com.aren.orderserver.entities;
 
-import com.aren.orderserver.enums.OrderStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

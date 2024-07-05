@@ -1,13 +1,12 @@
 package com.aren.orderserver.web.controllers;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 import com.aren.orderserver.services.AuthService;
-import com.aren.orderserver.services.UserService;
 import com.aren.orderserver.web.dto.UserDto;
 import com.aren.orderserver.web.dto.auth.JwtRequest;
 import com.aren.orderserver.web.dto.auth.JwtResponse;
-import com.aren.orderserver.web.mappers.UserMapper;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -47,7 +46,7 @@ class AuthControllerTest {
         jwtResponse.setId(1);
         jwtResponse.setRefreshToken("ABC123");
         jwtResponse.setUsername("username");
-        when(authService.login(Mockito.<JwtRequest>any())).thenReturn(jwtResponse);
+        when(authService.login(any())).thenReturn(jwtResponse);
 
         JwtRequest jwtRequest = new JwtRequest();
         jwtRequest.setPassword("password");
@@ -78,7 +77,7 @@ class AuthControllerTest {
         jwtResponse.setId(1);
         jwtResponse.setRefreshToken("ABC123");
         jwtResponse.setUsername("username");
-        when(authService.refresh(Mockito.<String>any())).thenReturn(jwtResponse);
+        when(authService.refresh(any())).thenReturn(jwtResponse);
         MockHttpServletRequestBuilder contentTypeResult = MockMvcRequestBuilders.post("/api/v1/auth/refresh")
                 .contentType(MediaType.APPLICATION_JSON);
         MockHttpServletRequestBuilder requestBuilder = contentTypeResult

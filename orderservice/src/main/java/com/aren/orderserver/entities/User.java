@@ -1,8 +1,6 @@
 package com.aren.orderserver.entities;
 
-import com.aren.orderserver.enums.UserRole;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,7 +23,7 @@ public class User implements Serializable {
     private String username;
 
     @Column(name = "password")
-    private String password; //todo hashed jwt
+    private String password;
 
     @Column(name = "email")
     private String email;
